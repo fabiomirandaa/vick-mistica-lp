@@ -1,0 +1,84 @@
+<footer class="footer" role="contentinfo">
+  <div class="footer__main">
+    <div class="footer__container">
+      <div class="footer__brand">
+        <h2 class="footer__logo">Vick Mística</h2>
+        <p class="footer__tagline">
+          Leitura de Tarô Intuitiva<br>Online e Presencial
+        </p>
+        <div class="footer__social">
+          <a
+            [href]="whatsappLink"
+            class="footer__social-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="WhatsApp da Vick Mística"
+          >💬 WhatsApp</a>
+          <a
+            href="https://instagram.com/vickmistica"
+            class="footer__social-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram da Vick Mística"
+          >📸 Instagram</a>
+          <a
+            href="https://tiktok.com/@vickmistica"
+            class="footer__social-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="TikTok da Vick Mística"
+          >🎵 TikTok</a>
+        </div>
+      </div>
+
+      <nav class="footer__nav" aria-label="Links rápidos">
+        <h3 class="footer__nav-title">Links Rápidos</h3>
+        <ul class="footer__nav-list" role="list">
+          <li><a href="#about" class="footer__nav-link">Sobre a Vick</a></li>
+          <li><a href="#services" class="footer__nav-link">Tipos de Leitura</a></li>
+          <li><a href="#testimonials" class="footer__nav-link">Depoimentos</a></li>
+          <li><a href="#faq" class="footer__nav-link">Dúvidas Frequentes</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer__contact">
+        <h3 class="footer__nav-title">Atendimento</h3>
+        <ul class="footer__contact-list" role="list">
+          <li>
+            <span class="footer__contact-icon" aria-hidden="true">🌐</span>
+            Online (Google Meet / Zoom)
+          </li>
+          <li>
+            <span class="footer__contact-icon" aria-hidden="true">📍</span>
+            Presencial — São Paulo, SP
+          </li>
+          <li>
+            <span class="footer__contact-icon" aria-hidden="true">⏰</span>
+            Seg–Sex: 9h–20h | Sáb: 9h–18h
+          </li>
+        </ul>
+        <a
+          [href]="whatsappLink"
+          class="btn btn--primary footer__cta"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Agendar leitura pelo WhatsApp"
+        >
+          Agendar Leitura
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer__bottom">
+    <div class="footer__container footer__bottom-content">
+      <p class="footer__copyright">
+        &copy; {{ currentYear() }} Vick Mística. Todos os direitos reservados.
+      </p>
+      <p class="footer__disclaimer">
+        As leituras de tarô são ferramentas de autoconhecimento e reflexão. 
+        Não substituem aconselhamento médico, psicológico ou jurídico.
+      </p>
+    </div>
+  </div>
+</footer>

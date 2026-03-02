@@ -1,0 +1,72 @@
+<section class="testimonials" id="testimonials" aria-labelledby="testimonials-heading">
+  <div class="testimonials__container">
+    <header class="testimonials__header">
+      <span class="section-badge">✦ O Que Dizem as Clientes ✦</span>
+      <h2 id="testimonials-heading" class="section-title">
+        Histórias de Transformação
+      </h2>
+      <p class="section-subtitle">
+        Mais de 2.000 leituras realizadas. Veja o que essas pessoas dizem sobre a experiência.
+      </p>
+    </header>
+
+    <div class="testimonials__rating-summary" role="img" aria-label="Avaliação média de 4.9 estrelas com 134 avaliações">
+      <div class="testimonials__stars" aria-hidden="true">★★★★★</div>
+      <div class="testimonials__rating-text">
+        <strong>4.9 de 5</strong> — 134 avaliações verificadas
+      </div>
+    </div>
+
+    <div class="testimonials__grid" aria-live="polite">
+      @for (testimonial of visibleTestimonials(); track testimonial.name) {
+        <article class="testimonial-card">
+          <header class="testimonial-card__header">
+            <div class="testimonial-card__avatar" aria-hidden="true">{{ testimonial.initials }}</div>
+            <div class="testimonial-card__author">
+              <strong class="testimonial-card__name">{{ testimonial.name }}</strong>
+              <span class="testimonial-card__location">{{ testimonial.location }}</span>
+            </div>
+          </header>
+
+          <div class="testimonial-card__stars" [attr.aria-label]="testimonial.rating + ' estrelas'" role="img">
+            @for (star of getStars(testimonial.rating); track $index) {
+              <span aria-hidden="true">{{ star }}</span>
+            }
+          </div>
+
+          <blockquote class="testimonial-card__text">
+            "{{ testimonial.text }}"
+          </blockquote>
+
+          <footer class="testimonial-card__service">
+            <span aria-label="Serviço contratado">{{ testimonial.service }}</span>
+          </footer>
+        </article>
+      }
+    </div>
+
+    <nav class="testimonials__nav" aria-label="Navegar entre depoimentos">
+      <button
+        class="testimonials__nav-btn"
+        (click)="prev()"
+        aria-label="Ver depoimentos anteriores"
+      >&#8249;</button>
+      <div class="testimonials__dots" role="tablist" aria-label="Páginas de depoimentos">
+      @for (page of Array(totalPages()); track $index) {
+          <span
+            class="testimonials__dot"
+            role="tab"
+            [class.testimonials__dot--active]="$index === currentIndex()"
+            [attr.aria-selected]="$index === currentIndex()"
+            [attr.aria-label]="'Página ' + ($index + 1)"
+          ></span>
+        }
+      </div>
+      <button
+        class="testimonials__nav-btn"
+        (click)="next()"
+        aria-label="Ver próximos depoimentos"
+      >&#8250;</button>
+    </nav>
+  </div>
+</section>

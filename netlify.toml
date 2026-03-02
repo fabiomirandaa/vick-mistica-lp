@@ -1,0 +1,15 @@
+[build]
+  command = "npm run build"
+  publish = "dist/vick-mistica-lp/browser"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/ssr"
+  status = 200
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
