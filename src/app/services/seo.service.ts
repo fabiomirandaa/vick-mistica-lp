@@ -1,6 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { DOCUMENT } from '@angular/common';
+import { ConfigService } from './config.service';
 
 export interface SeoConfig {
   title?: string;
@@ -16,6 +17,7 @@ export class SeoService {
   private meta = inject(Meta);
   private titleService = inject(Title);
   private document = inject(DOCUMENT);
+  private config = inject(ConfigService);
 
   private readonly DEFAULT: SeoConfig = {
     title: 'Vick Mística | Leitura de Tarô Online e Presencial',
@@ -77,7 +79,7 @@ export class SeoService {
           name: 'Vick Mística',
           description: 'Leitura de Tarô online e presencial com Vick Mística. Tiragens personalizadas para amor, carreira, mandala astrológica e muito mais.',
           url: 'https://vickmistica.com.br',
-          telephone: '+55-11-99999-9999',
+          telephone: `+55-${this.config.whatsappNumber.replace(/^55/, '').replace(/(\d{2})(\d{5})(\d{4})/, '$1-$2-$3')}`,
           image: 'https://vickmistica.com.br/assets/vick-mistica.webp',
           priceRange: '$$',
           address: {

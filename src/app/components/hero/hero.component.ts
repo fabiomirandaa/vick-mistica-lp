@@ -1,6 +1,7 @@
-import { Component, OnInit, inject, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
 import { trigger, style, animate, transition } from '@angular/animations';
+import { ConfigService } from '../../services/config.service';
 
 @Component({
   selector: 'app-hero',
@@ -23,16 +24,11 @@ import { trigger, style, animate, transition } from '@angular/animations';
     ]),
   ],
 })
-export class HeroComponent implements OnInit {
+export class HeroComponent {
+  private config = inject(ConfigService);
   readonly spotsLeft = signal(3);
-  readonly whatsappNumber = signal('5511999999999');
 
   get whatsappLink(): string {
-    const msg = encodeURIComponent('Olá, Vick! Gostaria de agendar minha leitura de tarô.');
-    return `https://wa.me/${this.whatsappNumber()}?text=${msg}`;
-  }
-
-  ngOnInit(): void {
-    // Could fetch real-time spots from a backend
+    return this.config.getWhatsappLink('Olá, Vick! Gostaria de agendar minha leitura de tarô.');
   }
 }

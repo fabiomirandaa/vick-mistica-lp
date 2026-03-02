@@ -1,4 +1,5 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ConfigService } from '../../services/config.service';
 
 interface Service {
   icon: string;
@@ -17,7 +18,7 @@ interface Service {
   styleUrl: './services.component.scss',
 })
 export class ServicesComponent {
-  readonly whatsappNumber = signal('5511999999999');
+  private config = inject(ConfigService);
 
   readonly services: Service[] = [
     {
@@ -56,7 +57,6 @@ export class ServicesComponent {
   ];
 
   getWhatsappLink(service: string): string {
-    const msg = encodeURIComponent(`Olá, Vick! Gostaria de agendar uma ${service}.`);
-    return `https://wa.me/${this.whatsappNumber()}?text=${msg}`;
+    return this.config.getWhatsappLink(`Olá, Vick! Gostaria de agendar uma ${service}.`);
   }
 }

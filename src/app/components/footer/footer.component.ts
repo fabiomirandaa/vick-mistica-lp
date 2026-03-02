@@ -1,4 +1,5 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
+import { ConfigService } from '../../services/config.service';
 
 @Component({
   selector: 'app-footer',
@@ -7,11 +8,12 @@ import { Component, signal } from '@angular/core';
   styleUrl: './footer.component.scss',
 })
 export class FooterComponent {
+  private config = inject(ConfigService);
   readonly currentYear = signal(new Date().getFullYear());
-  readonly whatsappNumber = signal('5511999999999');
+  readonly instagramUrl = this.config.instagramUrl;
+  readonly tiktokUrl = this.config.tiktokUrl;
 
   get whatsappLink(): string {
-    const msg = encodeURIComponent('Olá, Vick! Gostaria de saber mais sobre as leituras de tarô.');
-    return `https://wa.me/${this.whatsappNumber()}?text=${msg}`;
+    return this.config.getWhatsappLink('Olá, Vick! Gostaria de saber mais sobre as leituras de tarô.');
   }
 }
