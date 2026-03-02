@@ -1,0 +1,24 @@
+<section class="benefits" id="benefits" aria-labelledby="benefits-heading">
+  <div class="benefits__container">
+    <header class="benefits__header">
+      <span class="section-badge">✦ Por que fazer uma leitura? ✦</span>
+      <h2 id="benefits-heading" class="section-title">
+        O Que o Tarô Pode Fazer por Você
+      </h2>
+      <p class="section-subtitle">
+        Uma leitura de tarô não é sobre prever o futuro — é sobre entender o presente e 
+        transformar seu caminho com consciência e intenção.
+      </p>
+    </header>
+
+    <div class="benefits__grid" [@staggerFade]="benefits.length">
+      @for (benefit of benefits; track benefit.title) {
+        <article class="benefit-card">
+          <div class="benefit-card__icon" aria-hidden="true">{{ benefit.icon }}</div>
+          <h3 class="benefit-card__title">{{ benefit.title }}</h3>
+          <p class="benefit-card__description">{{ benefit.description }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>

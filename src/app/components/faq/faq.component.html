@@ -1,0 +1,40 @@
+<section class="faq" id="faq" aria-labelledby="faq-heading">
+  <div class="faq__container">
+    <header class="faq__header">
+      <span class="section-badge">✦ Dúvidas Frequentes ✦</span>
+      <h2 id="faq-heading" class="section-title">Perguntas &amp; Respostas</h2>
+      <p class="section-subtitle">
+        Antes de agendar, veja as respostas para as dúvidas mais comuns.
+      </p>
+    </header>
+
+    <div class="faq__list" role="list">
+      @for (item of faqs; track item.question; let i = $index) {
+        <div class="faq__item" role="listitem">
+          <button
+            class="faq__question"
+            [attr.aria-expanded]="openIndex() === i"
+            [attr.aria-controls]="'faq-answer-' + i"
+            [id]="'faq-question-' + i"
+            (click)="toggle(i)"
+          >
+            <span>{{ item.question }}</span>
+            <span class="faq__icon" aria-hidden="true">{{ openIndex() === i ? '−' : '+' }}</span>
+          </button>
+
+          @if (openIndex() === i) {
+            <div
+              class="faq__answer"
+              [@expand]
+              [id]="'faq-answer-' + i"
+              role="region"
+              [attr.aria-labelledby]="'faq-question-' + i"
+            >
+              <p>{{ item.answer }}</p>
+            </div>
+          }
+        </div>
+      }
+    </div>
+  </div>
+</section>

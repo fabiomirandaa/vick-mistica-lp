@@ -1,0 +1,68 @@
+<section class="hero" aria-label="Apresentação de Vick Mística">
+  <div class="hero__overlay"></div>
+  <div class="hero__container">
+    <div class="hero__content" @fadeInUp>
+      <span class="hero__badge">✦ Leitura de Tarô Intuitiva ✦</span>
+      <h1 class="hero__title">
+        Leitura de Tarô Intuitiva<br>com <span class="hero__name">Vick Mística</span>
+      </h1>
+      <p class="hero__subtitle">
+        Clareza, direcionamento e autoconhecimento através das cartas. 
+        Descubra o que o universo reserva para você em uma leitura personalizada 
+        e cheia de verdade.
+      </p>
+
+      <div class="hero__urgency" role="alert" aria-live="polite">
+        <span class="hero__urgency-icon">🔥</span>
+        <span>Apenas <strong>{{ spotsLeft() }} vagas</strong> disponíveis esta semana!</span>
+      </div>
+
+      <div class="hero__actions">
+        <a
+          [href]="whatsappLink"
+          class="btn btn--primary btn--pulse"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Agendar leitura de tarô pelo WhatsApp"
+        >
+          <span class="btn__icon">💬</span>
+          Agendar Minha Leitura
+        </a>
+        <a href="#services" class="btn btn--ghost" aria-label="Ver tipos de leitura disponíveis">
+          Conhecer as Tiragens
+        </a>
+      </div>
+
+      <div class="hero__trust" @fadeIn>
+        <div class="hero__trust-item">
+          <span class="hero__trust-icon">⭐</span>
+          <span>4.9/5 — 134 avaliações</span>
+        </div>
+        <div class="hero__trust-item">
+          <span class="hero__trust-icon">🔒</span>
+          <span>100% sigiloso</span>
+        </div>
+        <div class="hero__trust-item">
+          <span class="hero__trust-icon">💜</span>
+          <span>Sem julgamentos</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero__image-wrapper" @fadeIn>
+      <div class="hero__image-glow"></div>
+      <img
+        ngSrc="/assets/vick-mistica.webp"
+        alt="Vick Mística — Leitora de Tarô com cartas na mão"
+        width="500"
+        height="600"
+        priority
+        class="hero__image"
+      />
+    </div>
+  </div>
+
+  <div class="hero__scroll-indicator" aria-hidden="true">
+    <span class="hero__scroll-dot"></span>
+  </div>
+</section>

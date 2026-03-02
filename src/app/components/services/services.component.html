@@ -1,0 +1,54 @@
+<section class="services" id="services" aria-labelledby="services-heading">
+  <div class="services__container">
+    <header class="services__header">
+      <span class="section-badge">✦ Modalidades de Leitura ✦</span>
+      <h2 id="services-heading" class="section-title">
+        Escolha a Sua Tiragem
+      </h2>
+      <p class="section-subtitle">
+        Cada tipo de leitura é cuidadosamente construída para trazer o máximo de clareza 
+        para o aspecto da sua vida que mais precisa de atenção agora.
+      </p>
+    </header>
+
+    <div class="services__grid">
+      @for (service of services; track service.title) {
+        <article class="service-card" [class.service-card--featured]="service.featured">
+          @if (service.featured) {
+            <div class="service-card__badge">Mais Solicitada</div>
+          }
+          <div class="service-card__icon" aria-hidden="true">{{ service.icon }}</div>
+          <h3 class="service-card__title">{{ service.title }}</h3>
+          <p class="service-card__description">{{ service.description }}</p>
+
+          <div class="service-card__meta">
+            <span class="service-card__duration">
+              <span aria-hidden="true">⏱</span> {{ service.duration }}
+            </span>
+            <div class="service-card__modalities">
+              @for (mod of service.modalities; track mod) {
+                <span class="service-card__modality">{{ mod }}</span>
+              }
+            </div>
+          </div>
+
+          @if (service.price) {
+            <div class="service-card__price">{{ service.price }}</div>
+          }
+
+          <a
+            [href]="getWhatsappLink(service.title)"
+            class="btn service-card__cta"
+            [class.btn--primary]="service.featured"
+            [class.btn--outline]="!service.featured"
+            target="_blank"
+            rel="noopener noreferrer"
+            [attr.aria-label]="'Agendar ' + service.title + ' pelo WhatsApp'"
+          >
+            Agendar Agora
+          </a>
+        </article>
+      }
+    </div>
+  </div>
+</section>

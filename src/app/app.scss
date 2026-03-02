@@ -1,0 +1,54 @@
+// Global shared styles for the app component
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  background: #9333ea;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 0 0 8px 8px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.9rem;
+  z-index: 9999;
+  text-decoration: none;
+  transition: top 0.2s;
+
+  &:focus {
+    top: 0;
+  }
+}
+
+.section-placeholder {
+  background: linear-gradient(180deg, #0a0010 0%, #0e0018 100%);
+  width: 100%;
+}
+
+.whatsapp-fab {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 60px;
+  height: 60px;
+  background: #25d366;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+  z-index: 1000;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  animation: pulse-whatsapp 2.5s ease-in-out infinite;
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 28px rgba(37, 211, 102, 0.55);
+    animation: none;
+  }
+}
+
+@keyframes pulse-whatsapp {
+  0%, 100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); }
+  50% { box-shadow: 0 4px 32px rgba(37, 211, 102, 0.7); }
+}

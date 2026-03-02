@@ -1,0 +1,127 @@
+.services {
+  padding: 6rem 2rem;
+  background: linear-gradient(180deg, #130022 0%, #0a0010 100%);
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+
+    @media (max-width: 800px) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.service-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(147, 51, 234, 0.2);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: rgba(147, 51, 234, 0.5);
+  }
+
+  &--featured {
+    border-color: rgba(201, 162, 39, 0.5);
+    background: rgba(201, 162, 39, 0.04);
+
+    &:hover {
+      border-color: #c9a227;
+    }
+  }
+
+  &__badge {
+    position: absolute;
+    top: -1px;
+    right: 2rem;
+    background: linear-gradient(135deg, #c9a227, #f0d060);
+    color: #0a0010;
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.3rem 1rem;
+    border-radius: 0 0 8px 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  &__icon {
+    font-size: 2.5rem;
+  }
+
+  &__title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #f5f0ff;
+    margin: 0;
+  }
+
+  &__description {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.95rem;
+    color: rgba(245, 240, 255, 0.7);
+    line-height: 1.7;
+    font-weight: 300;
+    margin: 0;
+    flex: 1;
+  }
+
+  &__meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  &__duration {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.85rem;
+    color: rgba(245, 240, 255, 0.5);
+  }
+
+  &__modalities {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  &__modality {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.75rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 20px;
+    border: 1px solid rgba(147, 51, 234, 0.3);
+    color: rgba(245, 240, 255, 0.6);
+  }
+
+  &__price {
+    font-family: 'Cinzel', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #f0d060;
+  }
+
+  &__cta {
+    margin-top: 0.5rem;
+    text-align: center;
+    text-decoration: none;
+  }
+}
